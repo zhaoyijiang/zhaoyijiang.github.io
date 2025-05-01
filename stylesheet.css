@@ -129,3 +129,33 @@ name {
 span.highlight {
   background-color: #ffffd0;
 }
+/* ===== 6. Publication Tabs ===== */
+#pub-tabs {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 0;
+  margin: 1em auto;
+  justify-content: center;
+}
+
+#pub-tabs li {
+  padding: 0.3em 0.6em;
+  font-weight: normal;
+  color: #444;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+#pub-tabs li:hover {
+  color: #000;
+  border-bottom: 2px solid #aaa;
+}
+
+#pub-tabs li.active {
+  font-weight: bold;
+  color: #000;
+  border-bottom: 2px solid #000;
+  text-decoration: none;
+}
