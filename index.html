@@ -85,7 +85,12 @@
             document.getElementById('showMore').style.display = 'inline';
           }
         </script>
-        
+
+      <ul id="pub-tabs" style="list-style:none; display:flex; gap:1rem; cursor:pointer; padding:0; margin:1em auto; justify-content:center;">
+  <li id="tab-selected" class="active" style="font-weight:bold;">Selected Publications</li>
+  <li id="tab-all">All Publications</li>
+</ul>
+<div id="selected-pubs">
       <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
           <td style="padding:20px;width:100%;vertical-align:middle">
@@ -245,7 +250,35 @@
         </tr>
 
       </tbody></table>
-
+</div>
+<div id="all-pubs" style="display:none;">
+      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+          <td style="padding:20px;width:100%;vertical-align:middle">
+            <heading>All Publications</heading>
+          </td>
+        </tr>
+      </tbody></table>
+      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+        <tr>
+          <td style="padding:20px;width:30%;vertical-align:middle">
+            <img src='images/unimatch_v2.png' alt="game" width="180" style="border-style: none">
+          </td>
+          <td style="padding:20px;width:70%;vertical-align:middle">
+            <a href="https://arxiv.org/abs/2410.10777">
+              <papertitle>UniMatch V2: Pushing the Limit of Semi-Supervised Semantic Segmentation</papertitle>
+            </a>
+            <br>
+            <strong>Lihe Yang</strong>, Zhen Zhao, Hengshuang Zhao
+            <br>
+            <em>IEEE Transactions on Pattern Analysis and Machine Intelligence (<b>TPAMI</b>)</em>, 2025
+            <br>
+            <a href="https://arxiv.org/abs/2410.10777">Paper</a> /
+            <a href="https://github.com/LiheYoung/UniMatch-V2">Code</a>
+          </td>
+        </tr>
+	            </tbody></table>
+</div>
       <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
         <tr>
           <td style="padding:20px;width:100%;vertical-align:middle">
@@ -333,6 +366,23 @@
       </td>
     </tr>
   </table>
+		<script>
+  const tabSel = document.getElementById('tab-selected');
+  const tabAll = document.getElementById('tab-all');
+  const selDiv = document.getElementById('selected-pubs');
+  const allDiv = document.getElementById('all-pubs');
+
+  function activate(tab) {
+    tabSel.classList.toggle('active', tab === 'selected');
+    tabAll.classList.toggle('active',  tab === 'all');
+    selDiv.style.display = (tab === 'selected') ? 'block' : 'none';
+    allDiv.style.display = (tab === 'all')      ? 'block' : 'none';
+  }
+
+  tabSel.addEventListener('click', () => activate('selected'));
+  tabAll.addEventListener('click', () => activate('all'));
+</script>
+
 </body>
 
 </html>
